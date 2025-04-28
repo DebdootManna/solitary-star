@@ -10,9 +10,4 @@ export default defineConfig({
     host: '0.0.0.0',
     port: 5173,
   },
-  // Add Cloudflare Pages specific configuration
-  build: {
-    target: 'esnext',
-    outDir: 'dist',
-  },
 });
