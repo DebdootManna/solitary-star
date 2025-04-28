@@ -8,7 +8,7 @@ const Footer: React.FC = () => {
       <div className="max-w-5xl mx-auto">
         <p>© {currentYear} The Messengers. All rights reserved.</p>
         <p className="mt-2 text-sm">
-          <span className="opacity-75">Website by </span> <span className="text-violet-400">Debdoot Manna</span>
+          <span className="opacity-75">Made by </span> <span className="text-violet-400">Debdoot Manna</span>
         </p>
       </div>
     </footer>

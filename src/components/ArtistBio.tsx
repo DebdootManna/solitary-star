@@ -77,7 +77,7 @@ const ArtistBio: React.FC = () => {
             <h3 className="text-xl font-semibold text-white mb-3">The Messengers</h3>
             <p className="text-gray-300 mb-5 leading-relaxed">
               The Messengers is an innovative music project pushing the boundaries of sound and composition. 
-              Formed in 2022, the group explores cosmic themes through ambient soundscapes and melodic 
+              Formed in 2020, the group explores cosmic themes through ambient soundscapes and melodic 
               textures. "Solitary Star" represents their most ambitious work to date, combining organic 
               instruments with electronic elements to create an immersive listening experience.
             </p>
