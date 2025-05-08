@@ -58,7 +58,7 @@ const streamingPlatforms = [
     name: 'Boomplay',
     icon: <Radio className="w-5 h-5" />,
     color: '#E83C38',
-    url: '<iframe src='https://www.boomplay.com/embed/106678978/COL',
+    url: 'https://www.boomplay.com/albums/106678978',
   },
 ];
 
