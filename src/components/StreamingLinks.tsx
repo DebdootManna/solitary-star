@@ -46,7 +46,7 @@ const streamingPlatforms = [
     name: 'Amazon Music',
     icon: <ShoppingBag className="w-5 h-5" />,
     color: '#00A8E1',
-    url: 'https://amazon.com/music/player/albums/B0DXLL56L7?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_q8tUc0q8ZMueqERzTS409FSO4',
+    url: 'https://music.amazon.com/albums/B0DXLL56L7?marketplaceId=A3K6Y4MI8GDYMT&musicTerritory=IN&ref=dm_sh_6CsiWhhX38MFBA233rhts4ZAU',
   },
   {
     name: 'Shazam',
