@@ -33,7 +33,7 @@ A modern, immersive single-page website showcasing the "Solitary Star" album by 
 
 1. Clone the repository:
 ```bash
-git clone [<repository-url>](https://github.com/DebdootManna/solitary-star)
+git clone https://github.com/DebdootManna/solitary-star
 cd solitary-star
 ```
 
