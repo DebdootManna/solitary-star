@@ -4,28 +4,28 @@ export default {
   theme: {
     extend: {
       colors: {
-        violet: {
-          400: '#a78bfa',
-          500: '#8b5cf6',
-          600: '#7c3aed',
-          700: '#6d28d9',
-          800: '#5b21b6',
-          900: '#4c1d95',
-        },
-        cyan: {
-          400: '#22d3ee',
-          500: '#06b6d4',
-        },
-        gold: {
-          400: '#FFD700',
-        },
+        ivory: '#F5F0E8',
+        parchment: '#EAE1D5',
+        charcoal: '#25232B',
+        plum: '#292237',
+        lavender: '#8A78C6',
+        rose: '#C78F91',
+        accent: '#675497',
+        'warm-gray': '#686260',
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-        heading: ['Montserrat', 'sans-serif'],
+        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        display: ['Instrument Serif', 'Georgia', 'Cambria', 'Times New Roman', 'serif'],
       },
-      boxShadow: {
-        glow: '0 0 20px rgba(138, 43, 226, 0.5)',
+      letterSpacing: {
+        label: '0.16em',
+        wordmark: '0.18em',
+      },
+      maxWidth: {
+        shell: '1440px',
+      },
+      transitionTimingFunction: {
+        editorial: 'cubic-bezier(0.22, 1, 0.36, 1)',
       },
     },
   },

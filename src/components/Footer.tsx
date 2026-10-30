@@ -1,18 +1,12 @@
-import React from 'react';
-
-const Footer: React.FC = () => {
-  const currentYear = new Date().getFullYear();
-
+export default function Footer() {
   return (
-    <footer className="py-8 px-4 text-center text-gray-500">
-      <div className="max-w-5xl mx-auto">
-        <p>© {currentYear} The Messengers. All rights reserved.</p>
-        <p className="mt-2 text-sm">
-          <span className="opacity-75">Made by </span> <span className="text-violet-400">Debdoot Manna</span>
+    <footer className="site-footer">
+      <div className="page-shell footer-inner">
+        <p className="footer-credit">© 2026 The Messengers. All rights reserved.</p>
+        <p className="footer-credit">
+          Made by <span className="footer-credit-strong">Debdoot Manna</span>
         </p>
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}

@@ -1,108 +1,119 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useRef } from 'react';
-import { Instagram, Twitter, Youtube } from 'lucide-react';
-
 const socialLinks = [
   {
     name: 'Instagram',
-    icon: <Instagram className="w-5 h-5" />,
     url: 'https://www.instagram.com/themessengersmusic/',
+    icon: InstagramIcon,
   },
   {
-    name: 'Twitter',
-    icon: <Twitter className="w-5 h-5" />,
+    name: 'X/Twitter',
     url: 'https://x.com/DebdootManna',
+    icon: XIcon,
   },
   {
     name: 'YouTube',
-    icon: <Youtube className="w-5 h-5" />,
     url: 'https://www.youtube.com/@themessengersstudios',
+    icon: YouTubeIcon,
   },
 ];
 
-const ArtistBio: React.FC = () => {
-  const bioRef = useRef<HTMLDivElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && contentRef.current) {
-            contentRef.current.classList.add('opacity-100', 'translate-y-0');
-            contentRef.current.classList.remove('opacity-0', 'translate-y-10');
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    if (bioRef.current) observer.observe(bioRef.current);
-
-    return () => {
-      if (bioRef.current) observer.unobserve(bioRef.current);
-    };
-  }, []);
-
+export default function ArtistBio() {
   return (
-    <section ref={bioRef} className="py-24 px-4 relative overflow-hidden">
-      <div className="absolute inset-0 bg-[#0a0a0a] z-0"></div>
-      
-      {/* Subtle background effect */}
-      <div className="absolute inset-0 opacity-10 z-0">
-        <div className="absolute bottom-0 left-1/4 w-80 h-80 rounded-full bg-cyan-400 blur-[150px]"></div>
-      </div>
-
-      <div 
-        ref={contentRef}
-        className="max-w-3xl mx-auto relative z-10 transition-all duration-1000 opacity-0 translate-y-10"
-      >
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 text-white">The Artist</h2>
-        
-        <div className="flex flex-col md:flex-row items-center bg-gray-900/60 backdrop-blur-md rounded-2xl p-6 border border-gray-800">
-          {/* Artist image placeholder - circular with gradient border */}
-        <div className="shrink-0 mb-6 md:mb-0 md:mr-8">
-          <div className="w-32 h-32 rounded-full p-1 bg-gradient-to-br from-violet-600 to-cyan-400">
-            <div className="w-full h-full rounded-full bg-gray-800 flex items-center justify-center overflow-hidden">
-              <img 
-                src="/the-messengers-logo-dark.png"
-                alt="The Messengers Logo"
-                className="w-full h-full object-cover"
-              />
-             </div>
-          </div>
+    <section className="artist-section" id="artist" aria-labelledby="artist-name">
+      <div className="page-shell">
+        <div className="section-label-row">
+          <p className="section-label">The Artist</p>
+          <span className="section-label-rule" aria-hidden="true" />
         </div>
-          
-          <div>
-            <h3 className="text-xl font-semibold text-white mb-3">The Messengers</h3>
-            <p className="text-gray-300 mb-5 leading-relaxed">
-              The Messengers is an innovative music project pushing the boundaries of sound and composition. 
-              Formed in 2020, the group explores cosmic themes through ambient soundscapes and melodic 
-              textures. "Solitary Star" represents their most ambitious work to date, combining organic 
-              instruments with electronic elements to create an immersive listening experience.
-            </p>
-            
-            {/* Social links */}
-            <div className="flex space-x-3">
-              {socialLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center
-                    hover:bg-gray-700 transition-colors duration-300"
-                  aria-label={link.name}
-                >
-                  <span className="text-white">{link.icon}</span>
-                </a>
-              ))}
+
+        <div className="artist-grid">
+          <div className="artist-identity">
+            <div className="artist-logo">
+              <img
+                src="/the-messengers-logo-dark.png"
+                alt="The Messengers logo"
+                width={500}
+                height={500}
+                loading="lazy"
+                decoding="async"
+              />
             </div>
+            <p className="artist-tagline">Sound beyond the ordinary.</p>
+          </div>
+
+          <div className="artist-body">
+            <h2 className="artist-name" id="artist-name">
+              The Messengers
+            </h2>
+            <p className="artist-bio">
+              The Messengers is an innovative music project pushing the boundaries of
+              sound and composition. Formed in 2020, the group explores cosmic themes
+              through ambient soundscapes and melodic textures. "Solitary Star"
+              represents their most ambitious work to date, combining organic
+              instruments with electronic elements to create an immersive listening
+              experience.
+            </p>
+
+            <ul className="artist-socials">
+              {socialLinks.map(({ name, url, icon: Icon }) => (
+                <li key={name}>
+                  <a
+                    className="social-link"
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Icon />
+                    <span>{name}</span>
+                    <span className="sr-only"> (opens in a new tab)</span>
+                    <ArrowUpRight />
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>
     </section>
   );
-};
+}
 
-export default ArtistBio;
+function ArrowUpRight() {
+  return (
+    <svg
+      className="social-arrow"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="square"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <path d="M6 18 18 6M8 6h10v10" />
+    </svg>
+  );
+}
+
+function InstagramIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+    </svg>
+  );
+}
+
+function XIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+    </svg>
+  );
+}
+
+function YouTubeIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+      <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+    </svg>
+  );
+}
