@@ -97,14 +97,17 @@ export default function AlbumArtwork() {
         <div className="artwork-tilt" ref={tiltRef}>
           <div className="artwork-drift">
             <div className="artwork-frame">
-              <img
-                src="/solitary-star.png"
-                alt="Solitary Star album artwork: a lone castle on a mountainside beneath a swirling magenta and rose cosmic sky."
-                width={1400}
-                height={1400}
-                fetchPriority="high"
-                decoding="async"
-              />
+              <picture>
+                <source srcSet="/solitary-star.webp" type="image/webp" />
+                <img
+                  src="/solitary-star.png"
+                  alt="Solitary Star album artwork: a lone castle on a mountainside beneath a swirling magenta and rose cosmic sky."
+                  width={1400}
+                  height={1400}
+                  fetchPriority="high"
+                  decoding="async"
+                />
+              </picture>
             </div>
           </div>
         </div>
